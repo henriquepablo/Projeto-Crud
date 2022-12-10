@@ -4,14 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/style.css">
+    <title>Cadastro</title>
 </head>
 <body>
+
+    <% if(mensagem !== '') { %>
+        <div class="box">
+            <p><%=mensagem%></p>
+        </div>
+    <% } %>
     <form action="/cadastro" method="post">
         <input type="text" id="nome" name="nome">
         <input type="password" id="senha" name="senha">
-        <input type="submit">
+        <input type="submit" class="ap">
         <p>Já possui conta?<a href="/"> Faça o login</a></p>
     </form>
+
+    <script src="../../public/js/index.js"></script>
 </body>
 </html>
