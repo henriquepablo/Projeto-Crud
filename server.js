@@ -6,6 +6,10 @@ const path = require('path');
 
 const routes = require('./routes');
 
+const connect = require('./src/database/connect');
+
+connect.connection();
+
 app.use(express.urlencoded({extended: true}));
 
 app.use('/public',express.static(path.resolve(__dirname, 'public')));
