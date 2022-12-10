@@ -1,3 +1,3 @@
 exports.login = (req, res) => {
-    res.send('Olá Mundo');
+    res.render('login');
 }
