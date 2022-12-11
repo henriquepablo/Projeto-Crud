@@ -1,6 +1,8 @@
 let mensagem = '';
 let type = '';
 
+const user = require('../database/models/user');
+
 exports.renderCadastro = (req, res) => {
     setTimeout(() => {
         mensagem = ''
@@ -9,20 +11,33 @@ exports.renderCadastro = (req, res) => {
     
 }
 
-exports.cadastro = (req, res) => {
-    const {nome, senha} = req.body;
+exports.cadastro = async(req, res) => {
+    const {email, password} = req.body;
     
-    if(!nome || !senha) {
+    if(!email || !password) {
         mensagem = 'Campo nome ou senha está vazio';
         type = 'insucesso';
         res.redirect('/cadastro');
     }
-
-    else {
-        mensagem = 'Dados enviados';
-        type = 'sucesso';
-        console.log(nome, senha);    
+    
+    else if (await user.findOne({where: {email}})) {
+        mensagem = 'Usuário já cadastrado na plataforma';
+        console.log("I'm here");
         res.redirect('/cadastro');
+    }
+    
+    else {
+        const User = await user.create({email, password})
+        .then(resul => {
+            mensagem = 'Dados enviados';
+            console.log(email, password);
+            res.redirect('/cadastro');
+        })
+        .catch(err => console.log(err));
+        
+        
+        //console.log(email, senha);    
+        
     }
     
     //res.render('cadastro', {mensagem});
