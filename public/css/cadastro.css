@@ -1,0 +1,127 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #2325339a;
+    overflow: hidden;
+}
+
+p:nth-child(1) {
+    margin-left: 10px;
+    font-weight: 700;
+}
+
+.container {
+    background-color: #3D404F;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 330px;
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px black;
+}
+
+input {
+    display: block;
+    margin: 20px;
+}
+
+input[type="email"], input[type="password"], input[type="text"] {
+    width: 90%;
+    height: 25px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid;
+    border-bottom-color: black;
+    outline: none;
+    background-color: #3D404F;
+    font-size: 16px;
+    color: white;
+    margin-bottom: 30px;
+    padding-left: 35px;
+}
+
+input[type="email"] {
+    background-image: url('../img/login.png');
+    background-repeat: no-repeat;
+    background-size: 29px;
+    background-position: 0px -4px;
+}
+
+input[type="password"], input[type="text"] {
+    background-image: url('../img/senha.png');
+    background-repeat: no-repeat;
+    background-position: 2px -1px;
+}
+
+input[type="submit"] {
+    width: 90%;
+    height: 17%;
+    border-radius: 20px;
+    font-size: 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 40px 0px 60px 20px ;
+    transition: 1s;
+    font-weight: 600;
+}
+
+input[type="submit"]:hover {
+    background-color: black;
+    color: white;
+}
+
+::placeholder {
+    color: white;
+}
+
+h1 {
+    color: white;
+    margin-top: -50px;
+    margin-bottom: 50px;
+    font-size: 34px;
+    text-shadow: 4px 4px 4px black;
+}
+
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: 1s;
+    font-weight: 300;
+}
+
+a:hover {
+    color: rgba(0, 0, 0, 0.712);
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+p {
+    color: white;
+}
+
+.passwordHidden {
+    background-image: url('../img/hidden.png');
+    height: 20px;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -166px;
+    right: -250px;
+    cursor: pointer;
+}
+
+.trocarImagem {
+    background-image: url('../img/visibility.png');
+}

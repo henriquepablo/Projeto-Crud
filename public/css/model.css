@@ -1,0 +1,26 @@
+.model {
+    border: 1px solid;  
+    width: 340px;
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: all 2s linear;
+    margin-top: 20px;
+}
+
+.model-atencao {
+    border-color: #f4a911;
+	color: #FFF;
+	background-color: #f6ba42d3;
+}
+
+.model-insucesso {
+    border-color: #2f80e7;
+	color: #FFF;
+	background-color: #5d9cec;
+}
+
+.model-sucesso {
+    border-color: #87c940;
+	color: #FFF;
+	background-color: #a0d468;
+}
