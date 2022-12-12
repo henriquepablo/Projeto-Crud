@@ -29,6 +29,7 @@ p:nth-child(1) {
     transform: translateX(-50%);
     border-radius: 10px;
     box-shadow: 3px 3px 5px black;
+    z-index: -1;
 }
 
 input {
@@ -50,6 +51,7 @@ input[type="email"], input[type="password"], input[type="text"] {
     color: white;
     margin-bottom: 30px;
     padding-left: 35px;
+    letter-spacing: 1px;
 }
 
 input[type="email"] {

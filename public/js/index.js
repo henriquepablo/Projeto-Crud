@@ -2,9 +2,9 @@ const model = document.querySelector('.model');
 
 setTimeout(() => {
     model.style.display = 'none';
-}, 4000);
+}, 5000);
 
-const teste = document.querySelector('.passwordHidden').addEventListener('click', () => {
+const divPassword = document.querySelector('.passwordHidden').addEventListener('click', () => {
     const text = document.querySelector('#password');
     console.log(text.type);
 
