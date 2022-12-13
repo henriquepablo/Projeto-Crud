@@ -16,13 +16,17 @@ exports.cadastro = async(req, res) => {
     
     if(!email || !password) {
         mensagem = 'Campo email ou senha está em branco';
+        
         type = 'atencao';
+        
         res.redirect('/cadastro');
     }
-    
+
     else if (await user.findOne({where: {email}})) {
         mensagem = 'Usuário já cadastrado na plataforma';
+        
         type = 'insucesso';
+        
         res.redirect('/cadastro');
     }
     
@@ -30,16 +34,13 @@ exports.cadastro = async(req, res) => {
         const User = await user.create({email, password})
         .then(resul => {
             mensagem = 'Cadastrado com sucesso';
+            
             type = 'sucesso';
-            console.log(email, password);
+            
+            console.log('Cadastrado com sucesso');
+            
             res.redirect('/cadastro');
         })
-        .catch(err => console.log(err));
-        
-        
-        //console.log(email, senha);    
-        
-    }
-    
-    //res.render('cadastro', {mensagem});
+        .catch(err => console.log(err));    
+    }   
 }
