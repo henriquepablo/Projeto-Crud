@@ -1,8 +1,10 @@
+require('dotenv').config();
+
 const {Sequelize, DataTypes} = require('sequelize');
 
 const useBcrypt = require('sequelize-bcrypt');
 
-const sequelize = new Sequelize('persons', 'pablo', '59202712Pa@', {
+const sequelize = new Sequelize(process.env.database, process.env.user, process.env.password, {
     host: 'localhost',
     dialect: 'mysql'
 });
