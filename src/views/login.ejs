@@ -5,9 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/css/login.css">
+    <link rel="stylesheet" href="../../public/css/model.css">
     <title>Login</title>
 </head>
 <body>
+
+    <% if(mensagem !== '') { %>
+        <div class="model model-<%=type%>">
+            <p><%=mensagem%></p>
+        </div>
+    <% } %>
+
     <section class="container"> 
         <h1>Login</h1>
         <form action="/login" method="post">
