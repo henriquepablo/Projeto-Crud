@@ -44,13 +44,7 @@ exports.login = async(req, res) => {
     }
 
     else {
-        mensagem = 'Logado com sucesso';
-
-        type = 'sucesso';
-
-        console.log('logado com sucesso');
-
-        res.redirect('/');
+        res.redirect('/logado');
     }
 
 }
