@@ -1,16 +1,5 @@
 require('dotenv').config();
-const {Sequelize} = require('sequelize');
 
-const configConnection = new Sequelize(process.env.database, process.env.user, process.env.password, {
-    host: 'localhost',
-    dialect: 'mysql'
-});
+const {connect}  = require('mongoose');
 
-exports.connection = async() => {
-    try {
-        await configConnection.authenticate();
-        console.log('Conected');
-    } catch (error) {
-        console.log(error);
-    }  
-} 
+module.exports = connect(`mongodb+srv://${process.env.user}:${process.env.password}@cluster0.8gnl5qr.mongodb.net/${process.env.dataBase}?retryWrites=true&w=majority`) 

@@ -1,4 +1,5 @@
 const express = require('express');
+const { copyFileSync } = require('fs');
 
 const app = express();
 
@@ -8,11 +9,12 @@ const routes = require('./routes');
 
 const connect = require('./src/database/connect');
 
-connect.connection()
-    .then(() => {
-        app.emit('Conectado');
-    })
-    .catch(error => console.log(error));
+connect.then(result => {
+    console.log('Connected');
+    app.emit('Conectado');
+})
+.catch(err => console.log(err));
+
 
 app.use(express.urlencoded({extended: true}));
 
