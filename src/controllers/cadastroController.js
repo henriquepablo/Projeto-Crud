@@ -22,7 +22,7 @@ exports.cadastro = async(req, res) => {
         res.redirect('/cadastro');
     }
 
-    else if (await user.findOne({where: {email}})) {
+    else if (await user.findOne({email})) {
         mensagem = 'Usuário já cadastrado na plataforma';
         
         type = 'insucesso';

@@ -3,6 +3,8 @@ let type = '';
 
 const user = require('../database/models/user');
 
+const bcrypt = require('bcrypt');
+
 exports.renderLogin = (req, res) => {
     setTimeout(() => {
         mensagem = ''
@@ -14,7 +16,9 @@ exports.login = async(req, res) => {
     
     const {email, password} = req.body;
 
-    const login = await user.findOne({where: {email}});
+    const login = await user.findOne({email});
+
+    console.log(login);
 
     if(!email || !password) {
         mensagem = 'Campo email ou senha está em branco';
@@ -34,7 +38,7 @@ exports.login = async(req, res) => {
         res.redirect('/');
     }
 
-    else if(!login.authenticate(password)) {
+    else if(!await bcrypt.compare(password, login.password)) {
         mensagem = 'Email ou senha incorreto';
 
         type = 'atencao';

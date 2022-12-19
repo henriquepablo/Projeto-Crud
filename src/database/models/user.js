@@ -1,35 +1,22 @@
-// require('dotenv').config();
+const {Schema, model} = require('mongoose');
 
-// const {Sequelize, DataTypes} = require('sequelize');
+const bcrypt = require('bcrypt');
 
-// const useBcrypt = require('sequelize-bcrypt');
+const UserSchema = new Schema({
+    email: {
+        type: String,
+        require: true
+    },
+    password: {
+        type: String,
+        require: true
+    },
+});
 
-// const sequelize = new Sequelize(process.env.database, process.env.user, process.env.password, {
-//     host: 'localhost',
-//     dialect: 'mysql'
-// });
+UserSchema.pre('save', async function(next) {
+    const hash = await bcrypt.hash(this.password, 10);
 
-// const User = sequelize.define('Users', {
-//     id: {
-//         type: DataTypes.INTEGER,
-//         autoIncrement: true,
-//         allowNull: false,
-//         primaryKey: true
-//     },
-//     email: {
-//         type: DataTypes.STRING
-//     },
-//     password: {
-//         type: DataTypes.STRING
-//     }
-// });
+    this.password = hash;
+});
 
-// User.sync();
-
-// useBcrypt(User, {
-//     field: 'password',
-//     rounds: 10,
-//     compare: 'authenticate'
-// });
-
-// module.exports = User;
+module.exports = model('User', UserSchema);
