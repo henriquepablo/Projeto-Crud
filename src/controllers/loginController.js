@@ -18,8 +18,6 @@ exports.login = async(req, res) => {
 
     const login = await user.findOne({email});
 
-    console.log(login);
-
     if(!email || !password) {
         mensagem = 'Campo email ou senha está em branco';
         

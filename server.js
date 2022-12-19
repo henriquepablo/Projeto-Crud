@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 
 const app = express();
@@ -14,8 +15,23 @@ connect.then(result => {
 })
 .catch(err => console.log(err));
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended: true}));
+
+const sessionOptions = session({
+    secret: process.env.secret,
+    store: MongoStore.create({ mongoUrl: `mongodb+srv://${process.env.user}:${process.env.password}@cluster0.8gnl5qr.mongodb.net/${process.env.dataBase}?retryWrites=true&w=majority` }),
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+        httpOnly: true
+    }
+});
+
+app.use(sessionOptions);
 
 app.use(routes);
 
