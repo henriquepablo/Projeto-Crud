@@ -13,7 +13,7 @@ exports.renderCadastro = (req, res) => {
 
 exports.cadastro = async(req, res) => {
     const {email, password} = req.body;
-    
+
     if(!email || !password) {
         mensagem = 'Campo email ou senha está em branco';
         
@@ -41,6 +41,6 @@ exports.cadastro = async(req, res) => {
             
             res.redirect('/cadastro');
         })
-        .catch(err => console.log(err));    
+        .catch(err => console.log(err));           
     }   
 }

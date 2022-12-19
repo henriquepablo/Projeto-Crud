@@ -10,6 +10,12 @@ const sequelize = new Sequelize(process.env.database, process.env.user, process.
 });
 
 const User = sequelize.define('Users', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+        primaryKey: true
+    },
     email: {
         type: DataTypes.STRING
     },

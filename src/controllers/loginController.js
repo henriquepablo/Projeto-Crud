@@ -44,6 +44,7 @@ exports.login = async(req, res) => {
     }
 
     else {
+        mensagem = '';
         res.redirect('/logado');
     }
 
