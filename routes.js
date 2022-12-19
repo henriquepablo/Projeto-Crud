@@ -18,4 +18,6 @@ route.post('/login', homeLogin.login);
 
 route.get('/logado', homeLogado.logado);
 
+route.get('/logout', homeLogado.logout);
+
 module.exports = route;
