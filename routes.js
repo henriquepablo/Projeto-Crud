@@ -8,6 +8,8 @@ const homeCadastro = require('./src/controllers/cadastroController');
 
 const homeLogado = require('./src/controllers/logadoController');
 
+const {verificaLogin} = require('./src/middlewares/middleware');
+
 route.get('/', homeLogin.renderLogin);
 
 route.get('/cadastro', homeCadastro.renderCadastro);
@@ -16,7 +18,7 @@ route.post('/cadastro', homeCadastro.cadastro);
 
 route.post('/login', homeLogin.login);
 
-route.get('/logado', homeLogado.logado);
+route.get('/logado', verificaLogin, homeLogado.logado);
 
 route.get('/logout', homeLogado.logout);
 

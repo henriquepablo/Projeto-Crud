@@ -33,13 +33,13 @@ const sessionOptions = session({
 
 app.use(sessionOptions);
 
-app.use(routes);
-
 app.use('/public',express.static(path.resolve(__dirname, 'public')));
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 
 app.set('view engine', 'ejs');
+
+app.use(routes);
 
 app.on('Conectado', () => {
 

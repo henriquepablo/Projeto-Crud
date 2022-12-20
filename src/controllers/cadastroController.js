@@ -39,10 +39,7 @@ exports.cadastro = async(req, res) => {
             
             console.log('Cadastrado com sucesso');
             
-            req.session.user = req.body;
-            req.session.save(() => {
-                res.redirect('/cadastro');
-            });
+            res.redirect('/cadastro');
 
         })
         .catch(err => console.log(err));           

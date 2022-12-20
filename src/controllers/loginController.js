@@ -9,11 +9,11 @@ exports.renderLogin = (req, res) => {
     setTimeout(() => {
         mensagem = ''
     }, 1000);
+    if(req.session.user) return res.render('logado');
     res.render('login', {mensagem, type});
 }
 
 exports.login = async(req, res) => {
-    
     const {email, password} = req.body;
 
     const login = await user.findOne({email});
@@ -47,6 +47,7 @@ exports.login = async(req, res) => {
 
     else {
         mensagem = '';
+        req.session.user = req.body;
         res.redirect('/logado');
     }
 
