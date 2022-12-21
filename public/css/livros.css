@@ -1,0 +1,29 @@
+@media(max-width: 1000px) {
+    
+    .nav-item {
+        background-color: #0D6EFD;
+        border-radius: 5px;
+        margin: 10px 0px;
+    }
+    
+    .nav-item:hover {
+        background-color: #0B5ED7;
+    }
+
+    .nav-item:hover > .nav-link {
+        color: white !important;
+    }
+    
+    .nav-link {
+        color: white;
+        text-align: center;
+    }
+
+}
+
+#book {
+    outline: none;
+    width: 100%;
+    border: none;
+    height: 30px;
+}
