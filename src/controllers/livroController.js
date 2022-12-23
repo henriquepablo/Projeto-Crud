@@ -2,6 +2,8 @@ const imgModel = require('../../src/database/models/imageModel');
 
 const puppeteer = require('puppeteer');
 
+const enviarMensagem = require('./logadoController');
+
 const axios = require('axios');
 
 const fs = require('fs');
@@ -11,7 +13,17 @@ const paht = require('path');
 exports.cadastrarLivro = (req, res) => {
     const nomeDoLivro = req.body.book;
     
-    if(!nomeDoLivro) res.render('logado', {mensagem: 'Informe o nome do livro', type: 'atencao'});
+    const livroExiste = imgModel.findOne({nomeDoLivro});
+
+    if(!nomeDoLivro) {
+        enviarMensagem.mensagemAux('Nome do livro está em branco', 'insucesso');
+        res.redirect('/logado');
+    }
+
+    else if (livroExiste) {
+        enviarMensagem.mensagemAux('Livro já cadastrado', 'atencao');
+        res.redirect('/logado');
+    }
     
     else {
         let imgUrl;
@@ -39,6 +51,7 @@ exports.cadastrarLivro = (req, res) => {
         })()
         .then(async () => {
             await imgModel.create({nome: nomeDoLivro, url: imgUrl});
+            enviarMensagem.mensagemAux('Livro cadastrado', 'sucesso');
             res.redirect('/logado');
         })
         .catch(err => console.log(err));
