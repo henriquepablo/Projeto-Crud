@@ -58,6 +58,17 @@
             <p><%=mensagem%></p>
         </div>
     <% } %>
+    <section style="display: flex; justify-content: space-around; margin-top: 20px;">
+        <% for(let i = 0; i < items.length; i++) { %>
+            <div>
+                <img src="data:item/<%=items[i].contentType%>;base64,
+                <%=items[i].img.data.toString('base64')%>" alt="">
+                <p><%= items[i].nome %></p>
+            </div>
+        <% } %>
+    </section>
+
+
     <script src="../../public/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
