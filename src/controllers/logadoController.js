@@ -1,5 +1,5 @@
 exports.logado = (req, res) => {
-    res.render('logado');
+    res.render('logado', {mensagem: ''});
 }
 
 exports.logout = (req, res) => {

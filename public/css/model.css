@@ -25,3 +25,8 @@
 	color: #FFF;
 	background-color: #a0d468;
 }
+
+p {
+    margin: 0;
+    padding: 0;
+}
