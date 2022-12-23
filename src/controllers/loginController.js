@@ -9,7 +9,7 @@ exports.renderLogin = (req, res) => {
     setTimeout(() => {
         mensagem = ''
     }, 1000);
-    if(req.session.user) return res.render('logado');
+    if(req.session.user) return res.render('logado', {mensagem});
     res.render('login', {mensagem, type});
 }
 
