@@ -4,9 +4,8 @@ const imagemSchema = Schema({
     nome: {
         type: String
     },
-    img: {
-        data: Buffer,
-        contentType: String
+    url: {
+        type: String
     }
 });
 

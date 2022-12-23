@@ -5,11 +5,17 @@ const user = require('../database/models/user');
 
 const bcrypt = require('bcrypt');
 
+const imgModel = require('../database/models/imageModel');
+
 exports.renderLogin = (req, res) => {
     setTimeout(() => {
         mensagem = ''
     }, 1000);
-    if(req.session.user) return res.render('logado', {mensagem});
+    if(req.session.user) {
+        imgModel.find({}, (err, items) => {
+            return res.render('logado', {mensagem, items: items});
+        });
+    }
     res.render('login', {mensagem, type});
 }
 

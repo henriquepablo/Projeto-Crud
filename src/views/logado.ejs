@@ -58,12 +58,11 @@
             <p><%=mensagem%></p>
         </div>
     <% } %>
-    <section style="display: flex; justify-content: space-around; margin-top: 20px;">
+    <section style="display: flex; justify-content: space-around; align-items: center ;flex-wrap: wrap; padding: 5px;">
         <% for(let i = 0; i < items.length; i++) { %>
             <div>
-                <img src="data:item/<%=items[i].contentType%>;base64,
-                <%=items[i].img.data.toString('base64')%>" alt="">
-                <p><%= items[i].nome %></p>
+                <img src="<%= items[i].url%>" alt="">
+                <p style="text-align: center;"><%= items[i].nome %></p>
             </div>
         <% } %>
     </section>
