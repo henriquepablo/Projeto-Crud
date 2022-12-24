@@ -10,10 +10,11 @@ const fs = require('fs');
 
 const paht = require('path');
 
-exports.cadastrarLivro = (req, res) => {
+exports.cadastrarLivro = async (req, res) => {
     const nomeDoLivro = req.body.book;
     
-    const livroExiste = imgModel.findOne({nomeDoLivro});
+    const livroExiste = await imgModel.findOne({nome: nomeDoLivro});
+
 
     if(!nomeDoLivro) {
         enviarMensagem.mensagemAux('Nome do livro está em branco', 'insucesso');
