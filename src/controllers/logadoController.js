@@ -3,9 +3,13 @@ const imgModel = require('../database/models/imageModel');
 let mensagem;
 let type;
 
-exports.mensagemAux = (m = '', t = '') => {
+setTimeout(() => {
+    mensagem = '';
+}, 1000);
+
+exports.mensagemAux = (m, t) => {
     mensagem = m;
-    type = t
+    type = t;
 }
 
 exports.logado = (req, res) => {

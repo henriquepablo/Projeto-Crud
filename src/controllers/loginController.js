@@ -12,10 +12,8 @@ exports.renderLogin = (req, res) => {
         mensagem = ''
     }, 1000);
     if(req.session.user) {
-        imgModel.find({}, (err, items) => {
-            return res.render('logado', {mensagem, items: items});
-        });
-    }
+        return res.redirect('/logado'); 
+       }
     res.render('login', {mensagem, type});
 }
 
