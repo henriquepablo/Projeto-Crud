@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../public/css/livros.css">
     <link rel="stylesheet" href="../../public/css/model.css">
     <link rel="stylesheet" href="../../public/css/images.css">
+    <link rel="stylesheet" href="../../public/css/loader.css">
     <title>Livros</title>
 </head>
 <body>
@@ -31,7 +32,7 @@
                 </button>
                 
                 <!-- Modal -->
-                <form action="/cadastrarLivro" method="post">
+                <form action="/cadastrarLivro" method="post" >
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                         <div class="modal-content">
@@ -44,7 +45,7 @@
                             </div>
                             <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button type="submit" class="btn btn-primary cadastroLivro">Confirmar</button>
                             </div>
                         </div>
                         </div>
@@ -68,7 +69,9 @@
         <% } %>
     </section>
 
+    <div class="loader"></div>
     
+    <script src="../../public/js/logado.js"></script>
     <script src="../../public/js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
