@@ -27,3 +27,26 @@
     border: none;
     height: 30px;
 }
+
+.links {
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+    background-color: #C82333;
+    border-radius: 5px;
+    padding: 3px 0px;
+    cursor: pointer;
+    transition: 1s linear;
+}
+
+.links:hover {
+    background-color: #ff2c41;
+}
+
+.links > a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+}

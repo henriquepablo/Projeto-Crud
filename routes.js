@@ -10,6 +10,8 @@ const homeLogado = require('./src/controllers/logadoController');
 
 const livro = require('./src/controllers/livroController');
 
+const apagar = require('./src/controllers/apagarController');
+
 const {verificaLogin} = require('./src/middlewares/middleware');
 
 route.get('/', homeLogin.renderLogin);
@@ -25,5 +27,7 @@ route.get('/logado', verificaLogin, homeLogado.logado);
 route.get('/logout', homeLogado.logout);
 
 route.post('/cadastrarLivro',livro.cadastrarLivro);
+
+route.get('/apagar/:id', apagar.delete);
 
 module.exports = route;
